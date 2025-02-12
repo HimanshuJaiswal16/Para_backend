@@ -2,17 +2,17 @@ const db = require('../config/database');
 
 // Create birth record
 const createBirthRecord = async (req, res) => {
-  const { name, date_of_birth, time_of_birth, place_of_birth, mother_name, father_name, address } = req.body;
+  const { user_id ,name, date_of_birth, time_of_birth, place_of_birth, mother_name, father_name, address, created_at } = req.body;
 
   try {
-    const [rows] = await db.execute(
-      'INSERT INTO birth (name, date_of_birth, time_of_birth, place_of_birth, mother_name, father_name, address) VALUES (?, ?, ?, ?, ?, ?, ?)',
-      [name, date_of_birth, time_of_birth, place_of_birth, mother_name, father_name, address]
+    const [rows] = await db.query(
+      'INSERT INTO birth (user_id ,name, date_of_birth, time_of_birth, place_of_birth, mother_name, father_name, address) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      [ user_id ,name, date_of_birth, time_of_birth, place_of_birth, mother_name, father_name, address, created_at]
     );
     
     res.status(201).json({
       message: 'Birth record created successfully!',
-      data: { user_id: rows.insertId, name, date_of_birth, time_of_birth, place_of_birth, mother_name, father_name, address },
+      data: { user_id: rows.insertId, name, date_of_birth, time_of_birth, place_of_birth, mother_name, father_name, address, created_at },
     });
   } catch (error) {
     console.error(error);
