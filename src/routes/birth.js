@@ -4,7 +4,7 @@ const birthController = require('./../controllers/birthController');
 const validateBirthData = require('./../middlewares/birth');
 
 // POST endpoint to create a new birth record
-router.post('/birth', validateBirthData, birthController.createBirthRecord);
+router.post('/', validateBirthData, birthController.createBirthRecord);
 
 module.exports = router;
 

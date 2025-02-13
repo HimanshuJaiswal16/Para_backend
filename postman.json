@@ -37,35 +37,6 @@
 			"response": []
 		},
 		{
-			"name": "birth",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"name\":\"xyz\",\"date_of_birth\":\"12-02-2025\", \"time_of_birth\":\"1600\", \"place_of_birth\":\"Delhi\", \"mother_name\":\"testMother\", \"father_name\":\"testFather\". \"address\":\"testaddress\"}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/birth",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"birth"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "login",
 			"request": {
 				"method": "POST",
