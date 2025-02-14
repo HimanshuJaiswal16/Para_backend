@@ -3,7 +3,8 @@ const cors = require('cors');
 const path = require('path');
 const authRoutes = require('./routes/auth');
 const documentRoutes = require('./routes/documents');
-const birthRoutes = require('./routes/birth')
+const birthRoutes = require('./routes/birth');
+const atulPensionRoutes = require('./routes/atulPension')
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.use('/api/auth', authRoutes);
 app.use('/api/documents', documentRoutes);
 app.use('/api/birth', birthRoutes);
+app.use('/api/atulPension', atulPensionRoutes);
 
 // Create uploads directory if it doesn't exist
 const fs = require('fs');

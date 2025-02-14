@@ -81,6 +81,64 @@
 				"header": []
 			},
 			"response": []
+		},
+		{
+			"name": "atulPension",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Rakesh\",\"application_number\":\"Af989adf88998\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/atulPension",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"atulPension"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "birth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Rakesh\",\"date_of_birth\":\"10/12/1988\", \"time_of_birth\":\"10.10\", \"place_of_birth\":\"Delhi\", \"mother_name\":\"TestMother\", \"father_name\":\"TestFather\", \"address\":\"testAddress\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/birth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"birth"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
