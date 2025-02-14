@@ -36,3 +36,10 @@ CREATE TABLE IF NOT EXISTS birth (
     -- FOREIGN KEY (user_id) REFERENCES users(id), 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS atulPensionYojana (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    application_number VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
