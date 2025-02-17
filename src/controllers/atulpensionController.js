@@ -2,7 +2,10 @@ const db = require('../config/database');
 
 // Create birth record
 const createAtulPensionRecord = async (req, res) => {
-  const { user_id, name, application_number, created_at } = req.body;
+  const { name, application_number } = req.body;
+
+  const user_id = req.body.user_id;
+  const created_at = new Date();
 
   try {
     const [result] = await db.query(

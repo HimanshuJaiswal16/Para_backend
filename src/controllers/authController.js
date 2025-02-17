@@ -4,7 +4,7 @@ const db = require('../config/database');
 
 const signup = async (req, res) => {
   try {
-    const { mobile, mpin } = req.body;
+    const { user_id, mobile, mpin, created_at } = req.body;
 
     // Check if user exists
     const [existingUsers] = await db.query(
@@ -19,10 +19,13 @@ const signup = async (req, res) => {
     // Hash MPIN
     const hashedMpin = await bcrypt.hash(mpin, 8);
 
+    let uuid = crypto.randomUUID();
+    const currentDate = new Date();
+
     // Create user
     const [result] = await db.query(
-      'INSERT INTO users (mobile, mpin) VALUES (?, ?)',
-      [mobile, hashedMpin]
+      'INSERT INTO users (user_id ,mobile, mpin, created_at) VALUES (?, ?, ?, ?)',
+      [uuid, mobile, hashedMpin, currentDate]
     );
 
     const token = jwt.sign(
@@ -30,7 +33,14 @@ const signup = async (req, res) => {
       process.env.JWT_SECRET || 'your-secret-key'
     );
 
-    res.status(201).json({ token });
+    let user = {
+      user_id: uuid,
+      mobile: mobile,
+      mpin: hashedMpin,
+      created_at: currentDate
+    }
+
+    res.status(201).json({ token, user: user});
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -38,7 +48,7 @@ const signup = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const { mobile, mpin } = req.body;
+    const {user_id, mobile, mpin, created_at } = req.body;
 
     // Find user
     const [users] = await db.query(
@@ -62,7 +72,7 @@ const login = async (req, res) => {
       process.env.JWT_SECRET || 'your-secret-key'
     );
 
-    res.json({ token });
+    res.json({ token, user: user });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

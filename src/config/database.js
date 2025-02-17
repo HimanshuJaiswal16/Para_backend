@@ -7,7 +7,8 @@ const pool = mysql.createPool({
   database: 'document_upload_db',
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
+  queueLimit: 0,
+  logging: true
 });
 
 const promisePool = pool.promise();

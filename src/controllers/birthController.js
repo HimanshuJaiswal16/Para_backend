@@ -2,6 +2,7 @@ const db = require('../config/database');
 
 // Create birth record
 const createBirthRecord = async (req, res) => {
+
   const { user_id, name, date_of_birth, time_of_birth, place_of_birth, mother_name, father_name, address, created_at } = req.body;
 
   try {
