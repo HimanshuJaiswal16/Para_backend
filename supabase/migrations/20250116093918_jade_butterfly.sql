@@ -13,13 +13,14 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Documents table
+-- Documents table
 CREATE TABLE IF NOT EXISTS documents (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  user_id VARCHAR(255) NOT NULL,
+  user_id INT NOT NULL,
   type ENUM ('aadhar', 'pan', 'birth', 'pension') NOT NULL,
   file_path VARCHAR(255) NOT NULL,
   uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES users (id)
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS birth (
@@ -42,5 +43,14 @@ CREATE TABLE IF NOT EXISTS atulPensionYojana (
   user_id VARCHAR(255) NOT NULL,
   name VARCHAR(255) NOT NULL,
   application_number VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Users table for storing mobile numbers
+CREATE TABLE IF NOT EXISTS otp_requests (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  mobile_number VARCHAR(15) NOT NULL,
+  otp VARCHAR(6) NOT NULL,
+  expires_at DATETIME NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

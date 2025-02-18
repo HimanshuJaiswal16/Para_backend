@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const db = require('../config/database');
+const crypto = require("crypto"); // Import crypto module
 
 const signup = async (req, res) => {
   try {
@@ -19,12 +20,12 @@ const signup = async (req, res) => {
     // Hash MPIN
     const hashedMpin = await bcrypt.hash(mpin, 8);
 
-    let uuid = crypto.randomUUID();
+    let uuid = crypto.randomUUID(); // Generate unique user_id
     const currentDate = new Date();
 
     // Create user
     const [result] = await db.query(
-      'INSERT INTO users (user_id ,mobile, mpin, created_at) VALUES (?, ?, ?, ?)',
+      'INSERT INTO users (user_id, mobile, mpin, created_at) VALUES (?, ?, ?, ?)',
       [uuid, mobile, hashedMpin, currentDate]
     );
 
@@ -40,7 +41,7 @@ const signup = async (req, res) => {
       created_at: currentDate
     }
 
-    res.status(201).json({ token, user: user});
+    res.status(201).json({ token, user });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -48,7 +49,7 @@ const signup = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const {user_id, mobile, mpin, created_at } = req.body;
+    const { mobile, mpin } = req.body;
 
     // Find user
     const [users] = await db.query(
@@ -68,11 +69,11 @@ const login = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { id: user.id, mobile },
+      { id: user.user_id, mobile },
       process.env.JWT_SECRET || 'your-secret-key'
     );
 
-    res.json({ token, user: user });
+    res.json({ token, user });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

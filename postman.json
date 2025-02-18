@@ -10,7 +10,6 @@
 			"name": "signup",
 			"request": {
 				"method": "POST",
-				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": "{\"mobile\":\"1234567890\",\"mpin\":\"1234\"}",
@@ -23,24 +22,16 @@
 				"url": {
 					"raw": "http://localhost:3000/api/auth/signup",
 					"protocol": "http",
-					"host": [
-						"localhost"
-					],
+					"host": ["localhost"],
 					"port": "3000",
-					"path": [
-						"api",
-						"auth",
-						"signup"
-					]
+					"path": ["api", "auth", "signup"]
 				}
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "login",
 			"request": {
 				"method": "POST",
-				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": "{\"mobile\":\"1234567890\",\"mpin\":\"1234\"}",
@@ -53,40 +44,74 @@
 				"url": {
 					"raw": "http://localhost:3000/api/auth/login",
 					"protocol": "http",
-					"host": [
-						"localhost"
-					],
+					"host": ["localhost"],
 					"port": "3000",
-					"path": [
-						"api",
-						"auth",
-						"login"
-					]
+					"path": ["api", "auth", "login"]
 				}
-			},
-			"response": []
+			}
+		},
+		{
+			"name": "send OTP",
+			"request": {
+				"method": "POST",
+				"body": {
+					"mode": "raw",
+					"raw": "{\"mobile\":\"1234567890\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/otp/send-otp",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["api", "otp", "send-otp"]
+				}
+			}
+		},
+		{
+			"name": "verify OTP",
+			"request": {
+				"method": "POST",
+				"body": {
+					"mode": "raw",
+					"raw": "{\"mobile\":\"1234567890\",\"otp\":\"123456\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/otp/verify-otp",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["api", "otp", "verify-otp"]
+				}
+			}
 		},
 		{
 			"name": "upload doc",
 			"request": {
 				"method": "GET",
 				"header": []
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "fetch doc",
 			"request": {
 				"method": "GET",
 				"header": []
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "atulPension",
 			"request": {
 				"method": "POST",
-				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": "{\"name\":\"Rakesh\",\"application_number\":\"Af989adf88998\"}",
@@ -99,23 +124,16 @@
 				"url": {
 					"raw": "http://localhost:3000/api/atulPension",
 					"protocol": "http",
-					"host": [
-						"localhost"
-					],
+					"host": ["localhost"],
 					"port": "3000",
-					"path": [
-						"api",
-						"atulPension"
-					]
+					"path": ["api", "atulPension"]
 				}
-			},
-			"response": []
+			}
 		},
 		{
 			"name": "birth",
 			"request": {
 				"method": "POST",
-				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": "{\"name\":\"Rakesh\",\"date_of_birth\":\"10/12/1988\", \"time_of_birth\":\"10.10\", \"place_of_birth\":\"Delhi\", \"mother_name\":\"TestMother\", \"father_name\":\"TestFather\", \"address\":\"testAddress\"}",
@@ -128,17 +146,11 @@
 				"url": {
 					"raw": "http://localhost:3000/api/birth",
 					"protocol": "http",
-					"host": [
-						"localhost"
-					],
+					"host": ["localhost"],
 					"port": "3000",
-					"path": [
-						"api",
-						"birth"
-					]
+					"path": ["api", "birth"]
 				}
-			},
-			"response": []
+			}
 		}
 	],
 	"auth": {
@@ -156,20 +168,14 @@
 			"listen": "prerequest",
 			"script": {
 				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
+				"exec": []
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
 				"type": "text/javascript",
-				"packages": {},
-				"exec": [
-					""
-				]
+				"exec": []
 			}
 		}
 	]
