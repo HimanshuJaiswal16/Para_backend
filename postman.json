@@ -56,7 +56,7 @@
 				"method": "POST",
 				"body": {
 					"mode": "raw",
-					"raw": "{\"mobile\":\"1234567890\"}",
+					"raw": "{\"mobile_number\":\"1234567890\"}",
 					"options": {
 						"raw": {
 							"language": "json"
