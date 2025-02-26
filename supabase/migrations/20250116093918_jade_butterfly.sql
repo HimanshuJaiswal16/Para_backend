@@ -13,14 +13,13 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Documents table
--- Documents table
 CREATE TABLE IF NOT EXISTS documents (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  user_id INT NOT NULL,
+  user_id VARCHAR(255) NOT NULL,
   type ENUM ('aadhar', 'pan', 'birth', 'pension') NOT NULL,
   file_path VARCHAR(255) NOT NULL,
   uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS birth (

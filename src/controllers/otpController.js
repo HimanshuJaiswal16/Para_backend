@@ -17,7 +17,7 @@ const sendOtp = async (req, res) => {
 
   try {
     // console.log(`Processing OTP request for mobile number: ${mobile_number}`);
-
+    
   // Find user
   const [users] = await db.query(
     'SELECT * FROM users WHERE mobile = ?',
@@ -32,8 +32,8 @@ const sendOtp = async (req, res) => {
     }
 
     // Generate OTP (6 digits, numeric)
-    const otp = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
-    // console.log(`Generated OTP: ${otp}`);
+    const otp = otpGenerator.generate(6, { digits: true, upperCaseAlphabets: false, specialChars: false, lowerCaseAlphabets: false });
+    console.log(`Generated OTP: ${otp}`);
 
     // Send OTP via SMS gateway (for demo)
     // sendOtpViaSms(mobile_number, otp);
