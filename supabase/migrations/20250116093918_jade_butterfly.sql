@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS documents (
   user_id VARCHAR(255) NOT NULL,
   type ENUM ('aadhar', 'pan', 'birth', 'pension') NOT NULL,
   file_path VARCHAR(255) NOT NULL,
+  document_id VARCHAR(255) NOT NULL,
   uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
