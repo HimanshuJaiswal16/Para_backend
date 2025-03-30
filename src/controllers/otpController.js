@@ -19,8 +19,6 @@ const sendOtp = async (req, res) => {
 
 
   try {
-    // console.log(`Processing OTP request for mobile number: ${mobile_number}`);
-
     // Find user
     const [users] = await db.query(
       'SELECT * FROM users WHERE mobile = ?',
