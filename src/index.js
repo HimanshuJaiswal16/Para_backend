@@ -11,6 +11,7 @@ const birthRoutes = require('./routes/birth');
 const atulPensionRoutes = require('./routes/atulPension');
 const otpRoutes = require('./routes/otpRoutes');
 const smsRoutes = require('./routes/smsRoutes');
+const incomeRoutes = require('./routes/incomeRoute');
 const corsMiddleware = require('./middlewares/corsMiddleware');
 
 const app = express();
@@ -36,6 +37,7 @@ app.use('/api/birth', birthRoutes);
 app.use('/api/atulPension', atulPensionRoutes);
 app.use('/api/otp', otpRoutes);
 app.use('/api/sms', smsRoutes);
+app.use('/api/income', incomeRoutes)
 
 
 // Start the server
