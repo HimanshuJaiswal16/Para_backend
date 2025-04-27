@@ -39,7 +39,8 @@ const verifyOtpMiddleware = async (req, res, next) => {
     res.status(200).json({
       message: 'OTP verified successfully!',
       token: token,
-      user_id: user.user_id
+      user_id: user.user_id,
+      success: true,
     });
   } catch (error) {
     console.error('Error while verifying OTP:', error);
