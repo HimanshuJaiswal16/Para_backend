@@ -1,4 +1,4 @@
-const db = require('../config/database');
+const db = require('../../../config/database');
 
 // Create birth record
 const createAtulPensionRecord = async (req, res) => {

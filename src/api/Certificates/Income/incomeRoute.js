@@ -1,6 +1,6 @@
 const express = require('express');
-const { sendIncomeOtp } = require('../controllers/incomeController');  // Importing sendOtp controller
-const verifyIncomeMiddleware = require('../middlewares/incomeMiddleware'); // Optional middleware
+const { sendIncomeOtp } = require('./incomeController');  // Importing sendOtp controller
+const verifyIncomeMiddleware = require('./incomeMiddleware'); // Optional middleware
 
 const router = express.Router();
 

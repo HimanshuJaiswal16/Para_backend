@@ -5,13 +5,22 @@ const fs = require('fs');
 
 
 // Import routes
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./routes/authRoute');
 const documentRoutes = require('./routes/documents');
-const birthRoutes = require('./routes/birth');
-const atulPensionRoutes = require('./routes/atulPension');
+const birthRoutes = require('./api/Certificates/Birth/birthRoute');
+const atulPensionRoutes = require('./api/Pension/CurrentHolding/atulPensionRoute');
 const otpRoutes = require('./routes/otpRoutes');
 const smsRoutes = require('./routes/smsRoutes');
-const incomeRoutes = require('./routes/incomeRoute');
+const incomeRoutes = require('./api/Certificates/Income/incomeRoute');
+const characterRoutes = require('./api/Certificates/Character/characterRoute');
+const casteRoutes = require('./api/Certificates/Caste/casteCertificateRoute');
+const vidwaYojanaRoutes = require('./api/Pension/VidhwaPension/vidwaPensionRoute');
+const viklangYojanaRoutes = require('./api/Pension/ViklangPension/viklangPensionRoute');
+const kissanCreditRoutes = require('./api/Farmer/KissanCreditCard/kissanCreditRoute');
+const fasalBimaRoutes = require('./api/Farmer/FasalBimaYojana/fasalBimaRoute');
+const rkvyloginRoutes = require('./api/Farmer/RKVY/rkvyloginRoute');
+
+
 const corsMiddleware = require('./middlewares/corsMiddleware');
 
 const app = express();
@@ -37,7 +46,15 @@ app.use('/api/birth', birthRoutes);
 app.use('/api/atulPension', atulPensionRoutes);
 app.use('/api/otp', otpRoutes);
 app.use('/api/sms', smsRoutes);
-app.use('/api/income', incomeRoutes)
+app.use('/api/income', incomeRoutes);
+app.use('/api/character', characterRoutes);
+app.use('/api/caste', casteRoutes);
+app.use('/api/vidwaYojana', vidwaYojanaRoutes);
+app.use('/api/viklangYojana', viklangYojanaRoutes);
+app.use('/api/kissanCredit', kissanCreditRoutes);
+app.use('/api/fasalBima', fasalBimaRoutes);
+app.use('/api/rkvylogin',rkvyloginRoutes);
+
 
 
 // Start the server

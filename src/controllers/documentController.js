@@ -11,7 +11,7 @@ const uploadDocument = async (req, res) => {
     const userId = req.user.id;
     const filePath = req.file.path;
 
-    const validTypes = ['aadhar', 'pan', 'birth', 'pension'];
+    const validTypes = ['aadhar', 'pan', 'driving', 'voterId'];
     if (!validTypes.includes(type)) {
       return res.status(400).json({ error: 'Invalid document type' });
     }

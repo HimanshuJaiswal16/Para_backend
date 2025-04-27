@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS documents (
   id INT PRIMARY KEY AUTO_INCREMENT,
   user_id VARCHAR(255) NOT NULL,
-  type ENUM ('aadhar', 'pan', 'birth', 'pension') NOT NULL,
+  type ENUM ('aadhar', 'pan', 'driving', 'voterId') NOT NULL,
   file_path VARCHAR(255) NOT NULL,
   document_id VARCHAR(255) NOT NULL,
   uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
