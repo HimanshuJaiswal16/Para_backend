@@ -19,6 +19,8 @@ const viklangYojanaRoutes = require('./api/Pension/ViklangPension/viklangPension
 const kissanCreditRoutes = require('./api/Farmer/KissanCreditCard/kissanCreditRoute');
 const fasalBimaRoutes = require('./api/Farmer/FasalBimaYojana/fasalBimaRoute');
 const rkvyloginRoutes = require('./api/Farmer/RKVY/rkvyloginRoute');
+const viewRationCardRoute = require('./api/Utility&Services/ViewRationCard/viewRationCardRoutes');
+const applyRationCardRoute = require('./api/Utility&Services/ApplyRationCard/applyRationCardRoutes');
 
 
 const corsMiddleware = require('./middlewares/corsMiddleware');
@@ -54,7 +56,8 @@ app.use('/api/viklangYojana', viklangYojanaRoutes);
 app.use('/api/kissanCredit', kissanCreditRoutes);
 app.use('/api/fasalBima', fasalBimaRoutes);
 app.use('/api/rkvylogin',rkvyloginRoutes);
-
+app.use('/api/viewRationcard',viewRationCardRoute);
+app.use('/api/apply',applyRationCardRoute)
 
 
 // Start the server

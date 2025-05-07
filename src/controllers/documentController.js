@@ -6,12 +6,12 @@ const uploadDocument = async (req, res) => {
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
-
+    console.log(req.body, req.user.id, req.file.path, ">>>reqqqq")
     const { type } = req.body;
     const userId = req.user.id;
     const filePath = req.file.path;
 
-    const validTypes = ['aadhar', 'pan', 'driving', 'voterId'];
+    const validTypes = ['aadhar', 'pan', 'driving_license', 'voter_id'];
     if (!validTypes.includes(type)) {
       return res.status(400).json({ error: 'Invalid document type' });
     }
@@ -20,6 +20,8 @@ const uploadDocument = async (req, res) => {
       'SELECT * FROM documents WHERE user_id = ? AND type = ?',
       [userId,type]
     );
+
+    console.log(documents, ">>>documents row");
 
 
     if(documents.length>0){
@@ -30,11 +32,16 @@ const uploadDocument = async (req, res) => {
     }
 
     const document_id = crypto.randomUUID(); 
+    let createDate = new Date();
 
+    console.log(userId, type, filePath, document_id, createDate,">>>>fafadsf")
     const [result] = await db.query(
       'INSERT INTO documents (user_id, type, file_path, document_id) VALUES (?, ?, ?, ?)',
       [userId, type, filePath, document_id]
-    );
+    ).catch(error => {
+      console.error("Error inserting document:", error);
+    });
+
 
     res.status(201).json({
       message: 'Document uploaded successfully',
