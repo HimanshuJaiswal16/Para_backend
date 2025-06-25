@@ -16,7 +16,7 @@ const mysql = require('mysql2');
 // module.exports = promisePool;
 
 const promisePool = mysql.createPool({
-host: 'database-1.clkwcssiqip4.ap-south-1.rds.amazonaws.com',
+host: 'paradb.clkwcssiqip4.ap-south-1.rds.amazonaws.com',
   port: 3306,
   user: 'admin',
  password: 'iq6jmXRklqR9eATkVuqp',
