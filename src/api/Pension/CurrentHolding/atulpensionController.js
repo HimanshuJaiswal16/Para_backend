@@ -9,7 +9,7 @@ const createAtulPensionRecord = async (req, res) => {
 
   try {
     const [result] = await db.query(
-      'INSERT INTO atulPensionYojana (user_id, name, application_number, created_at) VALUES (?, ?, ?, ?)',
+      'INSERT INTO atul_pension_yojana (user_id, name, application_number, created_at) VALUES (?, ?, ?, ?)',
       [user_id, name, application_number, created_at]
     );
 
